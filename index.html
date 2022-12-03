@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="https://kit.fontawesome.com/688f057db1.js" crossorigin="anonymous"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/js/sw.js').then(function(registration) {
+              // Registration was successful
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+              // registration failed :(
+              console.log('ServiceWorker registration failed: ', err);
+            });
+          });
+        }
+      </script>
+    <title>Todo Tada!</title>
+</head>
+
+<body class="bg-dark">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Todo Tada!</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">All Items</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./html/incomplete.html">Incomplete Items</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./html/complete.html">Complete Items</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <main class="container mt-4">
+        <section class="todo mb-2" id="todo">
+            <p>THINGS TO DO:</p>
+            <button type="button" onclick="sortAscending(1)" class="btn btn-sm btn-primary mb-2">Sort <i class="mx-1 fa-solid fa-sort-up"></i></button>
+            <button type="button" onclick="sortDescending(1)" class="btn btn-sm btn-primary mb-2">Sort <i class="mx-1 fa-solid fa-sort-down"></i></button>
+            <div class="row" id="toDoContainer">
+
+            </div> 
+        </section>
+        <section class="completed">
+            <p>COMPLETED ITEMS:</p>
+            <button type="button" onclick="sortAscending(2)" class="btn btn-sm btn-primary mb-2">Sort <i class="mx-1 fa-solid fa-sort-up"></i></button>
+            <button type="button" onclick="sortDescending(2)" class="btn btn-sm btn-primary mb-2">Sort <i class="mx-1 fa-solid fa-sort-down"></i></button>
+            <div class="row" id="completedContainer">
+            </div>   
+        </section>
+        <section class="add mt-3">
+            <p>ADD A TO DO:</p>
+                <form class="w-100">
+                    <input type="text" id="newToDoItem" placeholder="Engage harddrive systems" class="w-100 p-3"/>
+                </form>
+                <div class="buttons mt-3">
+                    <button type="button" onclick="saveItem()" class="btn btn-primary">SAVE ITEM</button>
+                    <button type="button" onclick="deleteCompleted();" class="btn btn-primary">DELETE COMPLETED</button>
+                </div>
+              
+        </section>
+      </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="./js/index.js"></script>
+</html>
