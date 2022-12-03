@@ -1,4 +1,7 @@
+// I know this is a terrible way to do this but I didn't have much
+
 if (document.URL.indexOf('index.html') >= 0 || document.URL === 'https://matthew-io.github.io/web-wk10/' || document.URL.indexOf('incomplete.html') >= 0) {
+  console.log('deez nuts')
   window.onload = updateToDoList();
 }
 window.onload = updateCompleted();
