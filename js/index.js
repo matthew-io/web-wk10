@@ -1,8 +1,7 @@
-if (document.URL.indexOf('complete.html') >= 0) {
-  window.onload = updateCompleted();
-} else {
+if (document.URL.indexOf('index.html') >= 0 || document.URL === 'https://matthew-io.github.io/web-wk10/' || document.URL.indexOf('incomplete.html') >= 0) {
   window.onload = updateToDoList();
 }
+window.onload = updateCompleted();
 
 document.getElementById('newToDoItem').addEventListener("keyup", (event) => {
   // Number 13 is the "Enter" key on the keyboard
